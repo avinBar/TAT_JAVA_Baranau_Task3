@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Multithreading">
+	<test name="MultithreadingTest">
+		<classes>
+			<class name="by.rdtc.library.server.ServerTest"/>
+		</classes>
+	</test>
+</suite>
