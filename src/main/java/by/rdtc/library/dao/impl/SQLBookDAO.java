@@ -24,7 +24,7 @@ public class SQLBookDAO implements BookDAO {
 	private static final int ZERO_AFFECTED_ROWS = 0;
 
 	@Override
-	public void addBook(Book book) throws DAOException {
+	public synchronized void addBook(Book book) throws DAOException {
 		Connection connect = null;
 		PreparedStatement state = null;
 		
@@ -46,7 +46,7 @@ public class SQLBookDAO implements BookDAO {
 	}
 
 	@Override
-	public Book getBookById(int idBook) throws DAOException {
+	public synchronized Book getBookById(int idBook) throws DAOException {
 		Connection connection = null;
 		PreparedStatement state = null;
 		ResultSet rs = null;
@@ -74,7 +74,7 @@ public class SQLBookDAO implements BookDAO {
 	}
 
 	@Override
-	public void updateBook(Book book) throws DAOException {
+	public synchronized void updateBook(Book book) throws DAOException {
 		Connection connection = null;
 		PreparedStatement state = null;
 		
@@ -98,7 +98,7 @@ public class SQLBookDAO implements BookDAO {
 	}
 
 	@Override
-	public void deleteBook(int idBook) throws DAOException {
+	public synchronized void deleteBook(int idBook) throws DAOException {
 		Connection connection = null;
 		PreparedStatement state = null;
 		
@@ -121,7 +121,7 @@ public class SQLBookDAO implements BookDAO {
 	}
 
 	@Override
-	public List<Book> showAllBooks() throws DAOException {
+	public synchronized List<Book> showAllBooks() throws DAOException {
 		Connection connection = null;
 		PreparedStatement state = null;
 		ResultSet rs = null;

@@ -33,7 +33,7 @@ public class SQLUserDAO implements UserDAO {
 	private static final String U_TYPE = "u_type";
 
 	@Override
-	public User signIn(String login, String password) throws DAOException {
+	public synchronized User signIn(String login, String password) throws DAOException {
 		Connection connection = null;
 		PreparedStatement state = null;
 		ResultSet rs = null;
@@ -61,7 +61,7 @@ public class SQLUserDAO implements UserDAO {
 	}
 
 	@Override
-	public void register(User user) throws DAOException {
+	public synchronized void register(User user) throws DAOException {
 		Connection connection = null;
 		PreparedStatement state = null;
 		try {
@@ -84,7 +84,7 @@ public class SQLUserDAO implements UserDAO {
 	}
 
 	@Override
-	public void editProfile(User user) throws DAOException {
+	public synchronized void editProfile(User user) throws DAOException {
 		Connection connection = null;
 		PreparedStatement state = null;
 
@@ -107,7 +107,7 @@ public class SQLUserDAO implements UserDAO {
 	}
 
 	@Override
-	public void banUser(String login) throws DAOException {
+	public synchronized void banUser(String login) throws DAOException {
 		Connection connection = null;
 		PreparedStatement state = null;
 		try {
@@ -129,7 +129,7 @@ public class SQLUserDAO implements UserDAO {
 	}
 
 	@Override
-	public void unbanUser(String login) throws DAOException {
+	public synchronized void unbanUser(String login) throws DAOException {
 		Connection connection = null;
 		PreparedStatement state = null;
 		try {
@@ -151,7 +151,7 @@ public class SQLUserDAO implements UserDAO {
 	}
 
 	@Override
-	public void giveAdminRole(String login) throws DAOException {
+	public synchronized void giveAdminRole(String login) throws DAOException {
 		Connection connection = null;
 		PreparedStatement state = null;
 		try {
@@ -173,7 +173,7 @@ public class SQLUserDAO implements UserDAO {
 	}
 
 	@Override
-	public void removeAdmin(String login) throws DAOException {
+	public synchronized void removeAdmin(String login) throws DAOException {
 		Connection connection = null;
 		PreparedStatement state = null;
 		try {
@@ -195,7 +195,7 @@ public class SQLUserDAO implements UserDAO {
 	}
 
 	@Override
-	public User getUserByLogin(String login) throws DAOException {
+	public synchronized User getUserByLogin(String login) throws DAOException {
 		Connection connection = null;
 		PreparedStatement state = null;
 		ResultSet rs = null;
@@ -225,7 +225,7 @@ public class SQLUserDAO implements UserDAO {
 	}
 
 	@Override
-	public List<User> getAllUsers() throws DAOException {
+	public synchronized List<User> getAllUsers() throws DAOException {
 		Connection connection = null;
 		PreparedStatement state = null;
 		ResultSet rs = null;
@@ -253,7 +253,7 @@ public class SQLUserDAO implements UserDAO {
 	}
 
 	@Override
-	public User getUserById(int idUser) throws DAOException {
+	public synchronized User getUserById(int idUser) throws DAOException {
 		Connection connection = null;
 		PreparedStatement state = null;
 		ResultSet rs = null;

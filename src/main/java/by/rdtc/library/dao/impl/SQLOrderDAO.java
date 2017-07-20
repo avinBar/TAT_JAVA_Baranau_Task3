@@ -31,7 +31,7 @@ public class SQLOrderDAO implements OrderDAO {
 	private final static String TAKEN_AWAY = "taken_away";
 
 	@Override
-	public void addOrder(int idUser, int idBook) throws DAOException {
+	public synchronized void addOrder(int idUser, int idBook) throws DAOException {
 		Connection connection = null;
 		PreparedStatement state = null;
 
@@ -68,7 +68,7 @@ public class SQLOrderDAO implements OrderDAO {
 	}
 
 	@Override
-	public void confirmReturn(int idOrder) throws DAOException {
+	public synchronized void confirmReturn(int idOrder) throws DAOException {
 		Connection connection = null;
 		PreparedStatement state = null;
 
@@ -104,7 +104,7 @@ public class SQLOrderDAO implements OrderDAO {
 	}
 
 	@Override
-	public void deliveryOrder(int idOrder) throws DAOException {
+	public synchronized void deliveryOrder(int idOrder) throws DAOException {
 		Connection connection = null;
 		PreparedStatement state = null;
 
@@ -140,7 +140,7 @@ public class SQLOrderDAO implements OrderDAO {
 	}
 
 	@Override
-	public void cancelOrder(int idUser, int idOrder, int idBook) throws DAOException {
+	public synchronized void cancelOrder(int idUser, int idOrder, int idBook) throws DAOException {
 		Connection connection = null;
 		PreparedStatement state = null;
 
@@ -176,7 +176,7 @@ public class SQLOrderDAO implements OrderDAO {
 	}
 
 	@Override
-	public List<Order> getOrders(int idUser) throws DAOException {
+	public synchronized List<Order> getOrders(int idUser) throws DAOException {
 		Connection connection = null;
 		PreparedStatement state = null;
 		ResultSet rs = null;
@@ -205,7 +205,7 @@ public class SQLOrderDAO implements OrderDAO {
 	}
 
 	@Override
-	public List<Order> getUsersOrders() throws DAOException {
+	public synchronized List<Order> getUsersOrders() throws DAOException {
 		Connection connection = null;
 		PreparedStatement state = null;
 		ResultSet rs = null;
@@ -234,7 +234,7 @@ public class SQLOrderDAO implements OrderDAO {
 	}
 
 	@Override
-	public Order getOrderById(int idOrder) throws DAOException {
+	public synchronized Order getOrderById(int idOrder) throws DAOException {
 		Connection connection = null;
 		PreparedStatement state = null;
 		ResultSet rs = null;
